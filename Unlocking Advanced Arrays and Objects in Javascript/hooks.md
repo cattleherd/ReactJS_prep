@@ -273,9 +273,7 @@ function Spaceship() {
 
 # Controlled  vs Uncontrolled Components
 
-1) Controlled Components
-
-### UseRef
+### Uncontrolled Components with UseRef
 
 
 - instead of updating changes to input field in state, u can use a <b>UseRef</b> hook.
@@ -306,7 +304,7 @@ function Greeting() {
 - notice how we dont set the value for the input field, it's managed by the DOM, and useRef grabs the data from the DOM. 
 - this means that since DOM is managing the state, when the input field text changes and the useRef.current.value changes, it doesnt trigger state updates. This means the h1 will not update in real time (initialized to null) since thats what it started as.
 
-2) Controlled components
+### Controlled components with useState
 
  - What it is: The value of the input is kept in React state. Every keystroke goes through React. You can get live updates as react has full access to the state changes. State managed by react not DOM.
 
@@ -366,3 +364,4 @@ function People() {
 }
 
 ```
+
