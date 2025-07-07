@@ -365,3 +365,82 @@ function People() {
 
 ```
 
+### Props children
+
+- Instead of passing a prop like title="...", you place elements (like <h2> and <p>) between the opening and closing tags of <Book>.
+
+- You can pass any valid JSX between the opening and closing tags of a component—this becomes props.children inside that component.
+
+
+```jsx
+import './App.css';
+
+function Book({ children }) {
+  return <div className="book">{children}</div>;
+}
+
+function Library() {
+  // TODO: Use the `Book` component to wrap a message with a h2 title 'Adventures in React' and an author paragraph 'By Cosmo'
+  return (
+    <Book>
+      <h2>Adventures in React</h2>
+      <p>paragraph By Cosmo</p>
+    </Book>
+  );
+}
+
+export default Library;
+```
+
+### Communicating between child and parent
+
+```js
+// TODO: Define a 'Book' component that accepts 'onBorrow' prop and calls it when the borrow button is clicked
+
+function Book({ onBorrow }){
+    
+}
+
+// TODO: Define a 'Library' component that alerts the name of the borrowed book using the 'handleBorrow' function and renders the 'Book' component
+
+function Library(){
+    
+    
+}
+
+export default Library;
+
+// TODO: Export the 'Library' component as the default export
+
+```
+
+### Answer:
+
+```js
+// TODO: Define a 'Book' component that accepts 'onBorrow' prop and calls it when the borrow button is clicked
+
+function Book({ name, onBorrow }){
+    return(
+    <button onClick={()=>{onBorrow(name)}}>Borrow</button>); 
+}
+
+// TODO: Define a 'Library' component that alerts the name of the borrowed book using the 'handleBorrow' function and renders the 'Book' component
+
+function Library(){
+    function handleBorrow(name){
+        alert(`${name} has been borrowed`)
+    }
+    
+    return(
+        <div>
+            <Book name={'lol'} onBorrow={handleBorrow} />
+        </div>
+    );
+    
+}
+
+export default Library;
+
+```
+
+<b>ensure u pass as function ()=> not directly calling the onBorrowFunction. This ensures it only calls the function when btn actually clicked.</b>
